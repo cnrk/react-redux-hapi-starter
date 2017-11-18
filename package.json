@@ -5,5 +5,27 @@
   "main": "index.js",
   "author": "Christian Rijke <crijke@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "api",
+    "client"
+  ],
+  "scripts": {
+    "client-start": "cd client && yarn start",
+    "client-lint": "cd client && yarn lint",
+    "client-lint-fix": "cd client && yarn lint-fix",
+    "client-test": "cd client && yarn test",
+    "api-start": "cd api && yarn start",
+    "api-lint": "cd api && yarn lint",
+    "api-lint-fix": "cd api && yarn lint-fix",
+    "lint": "run-p client-lint api-lint",
+    "lint-fix": "run-p client-lint-fix api-lint-fix",
+    "start": "run-p client-start api-start"
+  },
+  "dependencies": {
+    "hapi": "^16.6.2"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
+  }
 }
