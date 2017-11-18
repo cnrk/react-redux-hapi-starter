@@ -1,0 +1,9 @@
+{
+  "name": "hapi-redux-boilerplate",
+  "version": "0.0.1",
+  "description": "Hapi / React / Redux Boilerplate",
+  "main": "index.js",
+  "author": "Christian Rijke <crijke@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
