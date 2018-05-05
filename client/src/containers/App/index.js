@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
-import './App.css'
 import { actions } from './ducks'
 import Header from '../../components/Header'
 
