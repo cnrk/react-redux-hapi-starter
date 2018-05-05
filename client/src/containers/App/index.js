@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import './App.css'
-import { loadHelloWorld } from './duck'
+import { loadHelloWorld } from './ducks'
+import Header from '../../components/Header'
 
 const App = ({ data, load }) => (
   <div className="App">
-    <header className="App-header">
-      <h1 className="App-title">Welcome to Hapi-React-Redux-Boilerplate</h1>
-    </header>
+    <Header />
     <p className="App-intro">
       To get started, edit <code>src/App.js</code> and save to reload.
     </p>

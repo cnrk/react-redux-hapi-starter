@@ -1,24 +1,25 @@
 import React from 'react'
 import createSagaMiddleware from 'redux-saga'
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
 
-import './index.css'
-import App from './App'
-import { app } from './App/duck'
+import rootReducer from './ducks'
 import rootSaga from './sagas'
+import App from './containers/App'
+
 import registerServiceWorker from './registerServiceWorker'
 
+import './index.css'
+
 const sagaMiddleware = createSagaMiddleware()
-const reducer = combineReducers({ app })
 
 const enhancers = compose(
   applyMiddleware(sagaMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )
 
-const store = createStore(reducer, enhancers)
+const store = createStore(rootReducer, enhancers)
 
 sagaMiddleware.run(rootSaga)
 

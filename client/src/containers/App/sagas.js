@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { LOAD, loadHelloWorldFailure, loadHelloWorldSuccess } from './duck'
+import { LOAD, loadHelloWorldFailure, loadHelloWorldSuccess } from './ducks'
 
 function* loadHelloWorld() {
   try {
