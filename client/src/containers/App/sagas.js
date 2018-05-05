@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { LOAD, loadHelloWorldFailure, loadHelloWorldSuccess } from './ducks'
+import { LOAD, actions } from './ducks'
 
 function* loadHelloWorld() {
   try {
     const response = yield call(axios, 'http://localhost:8000/hello')
-    yield put(loadHelloWorldSuccess(response.data))
+    yield put(actions.loadHelloWorldSuccess(response.data))
   } catch (error) {
-    yield put(loadHelloWorldFailure(error))
+    yield put(actions.loadHelloWorldFailure(error))
   }
 }
 

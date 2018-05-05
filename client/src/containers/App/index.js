@@ -1,36 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import _ from 'lodash'
+
 import './App.css'
-import { loadHelloWorld } from './ducks'
+import { actions } from './ducks'
 import Header from '../../components/Header'
 
 import './styles.scss'
 
-const App = ({ data, load }) => (
+const App = ({ data, loadHelloWorld }) => (
   <div className="App">
     <Header />
     <p className="App-intro">
-      To get started, edit <code>src/App.js</code> and save to reload.
+      To get started, edit <code>src/containers/App.js</code> and save to
+      reload.
     </p>
     <p>Hello World from the Api Server: {data}</p>
     <p>
-      <button onClick={() => load()}>load data from server</button>
+      <button onClick={loadHelloWorld}>load data from server</button>
     </p>
   </div>
 )
 
 App.propTypes = {
   data: PropTypes.string.isRequired,
-  load: PropTypes.func.isRequired
+  loadHelloWorld: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  data: state.app.data
-})
-
-const mapDispatchToProps = dispatch => ({
-  load: () => dispatch(loadHelloWorld())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(
+  state => ({
+    data: state.app.data
+  }),
+  _.pick(actions, 'loadHelloWorld')
+)(App)

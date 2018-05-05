@@ -17,21 +17,21 @@ export const app = (state = { data: 'no data received yet.' }, action = {}) => {
   }
 }
 
-export const loadHelloWorld = () => ({
-  type: LOAD
-})
-
-export const loadHelloWorldSuccess = data => {
-  return {
-    type: LOAD_SUCCESS,
-    payload: {
-      data
+export const actions = {
+  loadHelloWorld: () => ({
+    type: LOAD
+  }),
+  loadHelloWorldSuccess: data => {
+    return {
+      type: LOAD_SUCCESS,
+      payload: {
+        data
+      }
     }
-  }
+  },
+  loadHelloWorldFailure: ({ error }) => ({
+    type: LOAD_FAILURE,
+    payload: new Error(error),
+    error: true
+  })
 }
-
-export const loadHelloWorldFailure = ({ error }) => ({
-  type: LOAD_FAILURE,
-  payload: new Error(error),
-  error: true
-})
