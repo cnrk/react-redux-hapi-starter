@@ -5,6 +5,8 @@ import './App.css'
 import { loadHelloWorld } from './ducks'
 import Header from '../../components/Header'
 
+import './styles.scss'
+
 const App = ({ data, load }) => (
   <div className="App">
     <Header />

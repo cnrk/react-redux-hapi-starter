@@ -22,9 +22,6 @@
     "lint-fix": "run-p client-lint-fix api-lint-fix",
     "start": "run-p client-start api-start"
   },
-  "dependencies": {
-    "hapi": "^16.6.2"
-  },
   "devDependencies": {
     "npm-run-all": "^4.1.2"
   }

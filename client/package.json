@@ -7,9 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "FORCE_COLOR=true react-scripts start | cat -",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "FORCE_COLOR=true react-app-rewired start | cat -",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "lint-fix": "eslint --fix src"
@@ -27,6 +27,7 @@
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
+    "css-loader": "^0.28.11",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.7.0",
@@ -34,7 +35,11 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.5.0",
-    "prettier": "^1.8.2"
+    "node-sass": "^4.9.0",
+    "prettier": "^1.8.2",
+    "react-app-rewired": "^1.5.2",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0"
   },
   "babel": {
     "presets": [
@@ -47,7 +52,9 @@
         }
       ]
     ],
-    "plugins": ["transform-class-properties"]
+    "plugins": [
+      "transform-class-properties"
+    ]
   },
   "eslintConfig": {
     "extends": [
